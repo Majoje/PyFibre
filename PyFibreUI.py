@@ -18,7 +18,7 @@ import sys
 # import dxfgrabber
 # from objbrowser import browse
 
-#
+###
 app = QApplication(sys.argv)
 
 try:
