@@ -2,46 +2,55 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 import time
 import sys
+import MySQLdb
+#
+import mysql
+from mysql import connector
+#from mysql import *
+import gtk
+from PyQt4 import QtCore, QtGui
+import ctypes
+import pyodbc
+import os
+from os import path
+import getpass
+import struct
+import socket
+from socket import *
+import netifaces
+from netifaces import interfaces, ifaddresses, AF_INET, AF_INET6, AF_LINK
+import csv
+import dxfgrabber
+from objbrowser import browse
 
-# import gtk
-# from PyQt4 import QtCore, QtGui
-# import ctypes
-# import pyodbc
-# import os
-# from os import path
-# import getpass
-# import struct
-# import socket
-# import netifaces
-# from netifaces import interfaces, ifaddresses, AF_INET, AF_INET6, AF_LINK
-# import csv
-# import dxfgrabber
-# from objbrowser import browse
 
 
-app = QApplication(sys.argv)
+#s = socket.socket()
 
-try:
-    due = QTime.currentTime()
-    message = "Alert!"
+#host = "www.majoje.co.za"
+#port = 3306
+#addr = (host, port)
 
-    if len(sys.argv) < 2:
-        raise ValueError
+#s.connect((host, port))
+#print s.recv(1024)
 
-    hours, minutes = sys.argv[1].split(":")
-    due = QTime(int(hours), int(minutes))
+#cptmpdb_majojeco_Fibre
 
-    if not due.isValid():
-        raise ValueError
+db = mysql.connector.connect(user='majojeco_Fibre', password='!Sp33dy74Mrt07', host='197.189.240.21', database='majojeco_Fibre', port=3306)
+#mySQL_db = MySQLdb.connect(host="197.189.240.21", port=3306, user="majojeco_majoje", passwd="yl5Y1v7p5r", db="fibrenetwork")
+#mySQL_db = MySQLdb.connect(host="https://www.majoje.co.za/myweb/", port=3306, user="majojeco", passwd="yl5Y1v7p5r", db="majojeco_PyFibre")
+#db = mysql.connector.connect(user="majojeco_charl@localhost", password="yl5Y1v7p5r", host="dionysus.jcwdns.co.za", database="majojeco_fibrenetwork", port="3306")
+#db = mysql.connector.connect(user="majojeco_charl", password="!Sp33dy74Mrt07", port=3306, host="www.majoje.co.za", database="majojeco_fibrenetwork")
+#db = mysql.connector.connect(user="majojeco_majoje", passwd="yl5Y1v7p5r", host="197.189.240.21")
+#username = majojeco
+#password = yl5Y1v7p5r
 
-    if len(sys.argv) > 2:
-        message = " ".join(sys.argv[2:])
+#db = mysql.connector.connect(user='majojeco_pyFibre', password='!Sp33dy74Mrt07', host='dionysus.jcwdns.co.za', database='majojeco_PyFibre', port=3306)
 
-except ValueError:
-    message = "Usage: py_odbc_GUI.py HH:MM"  # 24hr clock
+#db = mysql.connector.connect(user='test', passwd='test', host='majoje.co.za', port=4040)
 
-while QTime.currentTime() < due:
-    time.sleep(10)
+#db = mysql.connector.connect(user="majojeco_charl@localhost", password="yl5Y1v7p5r", host="dionysus.jcwdns.co.za", database="majojeco_fibrenetwork", port="3306")
+
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -49,7 +58,7 @@ except AttributeError:
     def _fromUtf8(s):
         return s
 
-'''
+
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
@@ -57,12 +66,12 @@ try:
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
-'''
+
 
 
 def QButton():
     try:
-
+        app = QApplication(sys.argv)
         ex = Ui_Form()
         ex.show()
         app.exec_()
@@ -2159,4 +2168,5 @@ class FibreCable():
 
 
 if __name__ == '__main__':
+
     QButton()
