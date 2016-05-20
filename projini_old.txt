@@ -1,15 +1,4 @@
 C:\DevCode\PyCharm\PyFibre\PyFibre
-1463752804.59
-francois.swart
-14152
-2
-['0,1920,1080', '1,1920,1080']
-
-Previously:
-C:\DevCode\PyCharm\PyFibre\PyFibre
-
-Previously:
-C:\DevCode\PyCharm\PyFibre\PyFibre
 1463752778.81
 francois.swart
 16744
@@ -18,3 +7,7 @@ francois.swart
 
 Previously:
 C:\DevCode\PyCharm\PyFibre\PyFibre
+1463752770.89
+francois.swart
+8880
+44
