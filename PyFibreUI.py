@@ -35,10 +35,15 @@ from objbrowser import browse
 #print s.recv(1024)
 
 #cptmpdb_majojeco_Fibre
-
-db = mysql.connector.connect(user='majojeco_Fibre', password='!Sp33dy74Mrt07', host='197.189.240.21', database='majojeco_Fibre', port=3306)
 #mySQL_db = MySQLdb.connect(host="197.189.240.21", port=3306, user="majojeco_majoje", passwd="yl5Y1v7p5r", db="fibrenetwork")
 #mySQL_db = MySQLdb.connect(host="https://www.majoje.co.za/myweb/", port=3306, user="majojeco", passwd="yl5Y1v7p5r", db="majojeco_PyFibre")
+#db = mysql.connector.connect(user='majojeco_Fibre@localhost', password='!Sp33dy74Mrt07', host='197.189.240.21')
+#db = mysql.connector.connect(user='majojeco@localhost', password='!Sp33dy74Mrt07', host='majoje.co.za', db="majojeco_Fibre")
+#db = mysql.connector.connect(user='admin', password='!Sp33dy74Mrt07', host='197.189.240.21', db="majojeco_ownc499")
+#db = mysql.connector.connect(user='root', password='', host='197.189.240.21', port=3306)
+#db = mysql.connector.connect(user='root', password='', host='197.189.240.21', db="majojeco_Fibre", port=3306)
+#db = mysql.connector.connect(user='majojeco_Fibre@localhost', password='!Sp33dy74Mrt07', host='197.189.240.21', port=3306)
+
 #db = mysql.connector.connect(user="majojeco_charl@localhost", password="yl5Y1v7p5r", host="dionysus.jcwdns.co.za", database="majojeco_fibrenetwork", port="3306")
 #db = mysql.connector.connect(user="majojeco_charl", password="!Sp33dy74Mrt07", port=3306, host="www.majoje.co.za", database="majojeco_fibrenetwork")
 #db = mysql.connector.connect(user="majojeco_majoje", passwd="yl5Y1v7p5r", host="197.189.240.21")
