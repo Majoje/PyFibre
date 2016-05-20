@@ -158,7 +158,7 @@ def GetMonitorsize():
             fileobj.close()
 
     checkinifile()
-
+#
 def QButton():
     try:
         app = QApplication(sys.argv)
