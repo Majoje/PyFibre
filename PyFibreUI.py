@@ -57,6 +57,8 @@ from objbrowser import browse
 #db = mysql.connector.connect(user="majojeco_charl@localhost", password="yl5Y1v7p5r", host="dionysus.jcwdns.co.za", database="majojeco_fibrenetwork", port="3306")
 
 
+
+
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -73,6 +75,89 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 
+def GetMonitorsize():
+    global window
+    global screen
+    global monitors
+    global nmons
+    window = gtk.Window()
+    screen = window.get_screen()
+    monitors = []
+    nmons = screen.get_n_monitors()
+
+    def checkinifile():
+        projiniFileName = 'projini.txt'
+        projiniFileNameOld = 'projini_old.txt'
+        now = time.time()
+        userName = getpass.getuser()
+        currentDirectory = os.getcwd()
+        currentDateTime = time.time()
+        pnumber = os.getpid()
+        fullFilePathName = (currentDirectory + '/' + projiniFileName)
+        fullFilePathNameOld = (currentDirectory + '/' + projiniFileNameOld)
+        listofNetifaces = netifaces.interfaces()
+        countofNetifaces = ('{}'.format(len(listofNetifaces)))
+        if not (path.isfile(fullFilePathName)):
+            fileobj = open(projiniFileName, 'w')
+            fileobj.write(currentDirectory + '\n')
+            fileobj.write('{}'.format(now) + '\n')
+            fileobj.write(userName + '\n')
+            fileobj.write("{}".format(pnumber) + '\n')
+            fileobj.write("{}".format(nmons) + '\n')
+            for m in range(nmons):
+                mg = screen.get_monitor_geometry(m)
+                msize = "%d,%d,%d" % (m, mg.width, mg.height)
+                monitors.append(msize)
+            fileobj.write("{}".format(monitors) + '\n')
+            fileobj.write("{}".format('0') + '\n')
+            fileobj.write("{}".format('0') + '\n')
+            fileobj.write("{}".format('0') + '\n')
+            fileobj.close()
+        else:
+            if (path.isfile(fullFilePathNameOld)):
+                os.remove(projiniFileNameOld)
+            else:
+                pass
+            os.rename(projiniFileName, projiniFileNameOld)
+            fileObjOld = open(projiniFileNameOld, 'r')
+            location = fileObjOld.readline()
+            lastOpened = fileObjOld.readline()
+            lastUserName = fileObjOld.readline()
+            lastpnumber = fileObjOld.readline()
+            lastQtyMons = fileObjOld.readline()
+            lastMonitorsizes = fileObjOld.readline()
+            lastUsedMonitor = fileObjOld.readline()
+            lastX = fileObjOld.readline()
+            lastY = fileObjOld.readline()
+            fileObjOld.close()
+
+            fileobj = open(projiniFileName, 'w')
+            fileobj.write(currentDirectory + '\n')
+            fileobj.write('{}'.format(now) + '\n')
+            fileobj.write(userName + '\n')
+            fileobj.write("{}".format(pnumber) + '\n')
+            fileobj.write("{}".format(nmons) + '\n')
+            for m in range(nmons):
+                mg = screen.get_monitor_geometry(m)
+                msize = "%d,%d,%d" % (m, mg.width, mg.height)
+                monitors.append(msize)
+            fileobj.write("{}".format(monitors) + '\n')
+            fileobj.write("{}".format(lastUsedMonitor))
+            fileobj.write("{}".format(lastX))
+            fileobj.write("{}".format(lastY))
+            fileobj.write('\nPreviously:\n')
+            fileobj.write(location)
+            fileobj.write(lastOpened)
+            fileobj.write(lastUserName)
+            fileobj.write(lastpnumber)
+            fileobj.write(lastQtyMons)
+            fileobj.write(lastMonitorsizes)
+            fileobj.write(lastUsedMonitor)
+            fileobj.write(lastX)
+            fileobj.write(lastY)
+            fileobj.close()
+
+    checkinifile()
 
 def QButton():
     try:
@@ -2173,5 +2258,5 @@ class FibreCable():
 
 
 if __name__ == '__main__':
-
+    GetMonitorsize()
     QButton()
