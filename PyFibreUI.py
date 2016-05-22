@@ -35,10 +35,11 @@ from objbrowser import browse
 #print s.recv(1024)
 
 #cptmpdb_majojeco_Fibre
-#mySQL_db = MySQLdb.connect(host="197.189.240.21", port=3306, user="majojeco_majoje", passwd="yl5Y1v7p5r", db="fibrenetwork")
+#mySQL_db = MySQLdb.connect(host="197.189.240.21", port=3306, user="majojeco_PyFibre", passwd="!Sp33dy74Mrt07", db="majojeco_PyFibre")
+
 #mySQL_db = MySQLdb.connect(host="https://www.majoje.co.za/myweb/", port=3306, user="majojeco", passwd="yl5Y1v7p5r", db="majojeco_PyFibre")
 #db = mysql.connector.connect(user='majojeco_Fibre@localhost', password='!Sp33dy74Mrt07', host='197.189.240.21')
-#db = mysql.connector.connect(user='majojeco@localhost', password='!Sp33dy74Mrt07', host='majoje.co.za', db="majojeco_Fibre")
+db = mysql.connector.connect(user='majojeco_PyFibre', password='!Sp33dy74Mrt07', host='majoje.co.za', db="majojeco_PyFibre")
 #db = mysql.connector.connect(user='admin', password='!Sp33dy74Mrt07', host='197.189.240.21', db="majojeco_ownc499")
 #db = mysql.connector.connect(user='root', password='', host='197.189.240.21', port=3306)
 #db = mysql.connector.connect(user='root', password='', host='197.189.240.21', db="majojeco_Fibre", port=3306)
@@ -167,7 +168,7 @@ def checkinifile():
         fileobj.write(lastY)
         fileobj.close()
 
-
+'''
 #
 def QButton():
     try:
@@ -402,11 +403,9 @@ class Ui_Form(QtGui.QWidget):
         global userID
         global ODBC_userPassword
         global ODBC_connectionstring
-        '''
-        get values from ini file for the dbconnect
-        '''
+
         ODBC_driver = 'SQL Server'
-        ODBC_server = 'ZAMLRWPSQL01v\Dessoft'
+        ODBC_server = '\\WorleyParsons.com\ZAMLRWPSQL01v\Dessoft'
         ODBC_database = '120108_Kibali_Fibre'
         # userID = getpass.getuser()
         ODBC_userID = 'dessoft_admin'
@@ -718,17 +717,17 @@ class Ui_Form(QtGui.QWidget):
         self.label_4 = QtGui.QLabel(Form)
         self.label_4.setGeometry(QtCore.QRect(50, 40, 200, 16))
         self.label_4.setObjectName(_fromUtf8("label_2"))
-        '''
+
         #self.textBrowser_2 = QtGui.QTextBrowser(Form)
         #self.textBrowser_2.setGeometry(QtCore.QRect(240, 140, 311, 31))
         #self.textBrowser_2.setObjectName(_fromUtf8("textBrowser_2"))
-        self.checkBox = QtGui.QCheckBox(Form)
-        self.checkBox.setGeometry(QtCore.QRect(240, 190, 70, 17))
-        self.checkBox.setObjectName(_fromUtf8("checkBox"))
-        self.pushButton = QtGui.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(69, 237, 175, 23))
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        '''
+        #self.checkBox = QtGui.QCheckBox(Form)
+        #self.checkBox.setGeometry(QtCore.QRect(240, 190, 70, 17))
+        #self.checkBox.setObjectName(_fromUtf8("checkBox"))
+        #self.pushButton = QtGui.QPushButton(Form)
+        #self.pushButton.setGeometry(QtCore.QRect(69, 237, 175, 23))
+        #self.pushButton.setObjectName(_fromUtf8("pushButton"))
+
         self.pushButton_2 = QtGui.QPushButton(Form)
         self.pushButton_2.setGeometry(QtCore.QRect(50, 440, 300, 23))
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
@@ -904,10 +903,10 @@ class Ui_Form(QtGui.QWidget):
         self.label_2.setText(_translate("Form", ODBC_database, None))
         self.label_3.setText(_translate("Form", "Server Instance:", None))
         self.label_4.setText(_translate("Form", "Database:", None))
-        '''
-        self.checkBox.setText(_translate("Form", "CheckBox", None))
-        self.pushButton.setText(_translate("Form", "PushButton1", None))
-        '''
+
+        #self.checkBox.setText(_translate("Form", "CheckBox", None))
+        #self.pushButton.setText(_translate("Form", "PushButton1", None))
+
 
         self.pushButton_2.setText(_translate("Form", "PopulateNetworkTable", None))
         self.pushButton_2.clicked.connect(self.PopulateNetworkTable)
@@ -1825,21 +1824,21 @@ class Ui_Form(QtGui.QWidget):
             cursor.execute(Q3_PopulateNetworkTable)
             cnxn.commit()
 
-            '''
-            This needs to be done:
 
-            select IIndex.Area
-            FROM IIndex
-            Group By IIndex.Area
+            #This needs to be done:
 
-            select TOP(1)(IIndex.TagNum), IIndex.IP_a, IIndex.IP_b, IIndex.IP_c, IIndex.IP_d,
-            IIndex.Area, IIndex.PanelID, IIndex.IIndexID
-            From IIndex
-            Inner Join Panel ON Panel.PanelID = IIndex.PanelID
-            WHERE IIndex.Area = 'R23'
-            ORDER BY IIndex.IIndexID
+            #select IIndex.Area
+            #FROM IIndex
+            #Group By IIndex.Area
 
-            '''
+            #select TOP(1)(IIndex.TagNum), IIndex.IP_a, IIndex.IP_b, IIndex.IP_c, IIndex.IP_d,
+            #IIndex.Area, IIndex.PanelID, IIndex.IIndexID
+            #From IIndex
+            #Inner Join Panel ON Panel.PanelID = IIndex.PanelID
+            #WHERE IIndex.Area = 'R23'
+            #ORDER BY IIndex.IIndexID
+
+
 
         cursor.close()
         print "Done"
@@ -1997,116 +1996,6 @@ class Ui_Form(QtGui.QWidget):
 
         cursor.close()
 
-        '''
-        for q1 in q_detailcon_result:
-            Cur_CableID = q1.CableID
-            #Cur_CableCon_SrcID = q1.SrcID
-            Cur_Panel_OtherDocs = q1.OtherDocs
-            Cur_TstripID = q1.TstripID
-            Cur_CoreID = q1.CoreID
-            Cur_Ord = q1.Ord
-            Cur_PanelID = q1.PanelID
-
-            if Cur_Ord == 1:
-                print "-----"
-                print Cur_CableID
-                print Cur_Panel_OtherDocs
-                print Cur_TstripID
-                print Cur_CoreID
-                print Cur_Ord
-                print Cur_PanelID
-            else:
-                pass
-
-
-
-
-            Q2_ = "SELECT Core.CoreID, Core.Ord FROM Core WHERE Core.CableID = " + "'" + str(Cur_CableID) + "'"
-            cursor.execute(Q2_)
-            Q2_result = cursor.fetchall()
-            sumQ2 = len(Q2_result)
-
-            for q2 in Q2_result:
-                Cur_CoreID = (q2.CoreID)
-                Cur_CoreOrd = (q2.Ord)
-
-                if Cur_CoreOrd == 1:
-                    Q3a_ = "SELECT DetailCon.ConID, DetailCon.CoreID, DetailCon.TstripID, DetailCon.CableID, Tstrip.AssocGID FROM (DetailCon LEFT JOIN Tstrip ON Tstrip.TstripID = DetailCon.TstripID) WHERE DetailCon.CoreID = " + "'" + str(Cur_CoreID) +"'"
-                    cursor.execute(Q3a_)
-                    Q3a_result = cursor.fetchall()
-                    for q3a in Q3a_result:
-                        Curr_ConIDa = (q3a.ConID)
-                        Curr_CoreIDa = (q3a.CoreID)
-                        Curr_TstripIDa = (q3a.TstripID)
-                        Curr_CableIDa = (q3a.CableID)
-                        Curr_AssocGIDa = (q3a.AssocGID)
-                        print Cur_CoreOrd, Curr_ConIDa, Curr_CoreIDa, Curr_TstripIDa, Curr_CableIDa, Curr_AssocGIDa
-
-                if Cur_CoreOrd == (sumQ2/2):
-
-                    Q3b_ = "SELECT DetailCon.ConID, DetailCon.CoreID, DetailCon.TstripID, DetailCon.CableID, Tstrip.AssocGID FROM (DetailCon LEFT JOIN Tstrip ON Tstrip.TstripID = DetailCon.TstripID) WHERE DetailCon.CoreID = " + "'" + str(Cur_CoreID) +"'"
-                    cursor.execute(Q3b_)
-                    Q3b_result = cursor.fetchall()
-
-                    for q3b in Q3b_result:
-                        Curr_ConIDb = (q3b.ConID)
-                        Curr_CoreIDb = (q3b.CoreID)
-                        Curr_TstripIDb = (q3b.TstripID)
-                        Curr_CableIDb = (q3b.CableID)
-                        Curr_AssocGIDb = (q3b.AssocGID)
-                        print Cur_CoreOrd, Curr_ConIDb, Curr_CoreIDb, Curr_TstripIDb, Curr_CableIDb, Curr_AssocGIDb
-                else:
-                    pass
-
-
-
-
-
-                    #C_curr_tsID = q3.TstripID
-                    #C_curr_assocGID = q3.AssocGID
-                    #if Cur_CoreOrd == 1:
-                #		print Cur_CoreOrd, C_curr_tsID, C_curr_assocGID
-                #	if Cur_CoreOrd == (sumQ2/2):
-                #		print Cur_CoreOrd, C_curr_tsID, C_curr_assocGID
-                #	else:
-                #		pass
-
-
-                    #if Q3_aresult == 'Null':
-                    #	pass
-                    #else:
-                        #pass
-                    #	print CoreID
-                    #	print TstripID
-                    #	print AssocGID
-
-                    if C_Ord == int(sumQ2/2):
-                        Q3_b = "SELECT DetailCon.CoreID, DetailCon.TstripID FROM DetailCon WHERE (DetailCon.CoreID = " + "'" + str(C_CoreID) + "' AND DetailCon.TstripID <> " + "'" + "'"+")"
-                        #print Q3_b
-                        cursor.execute(Q3_b)
-                        Q3_bresult = cursor.fetchone()
-                        if Q3_bresult == 'Null':
-                            pass
-                            #print "null"
-                        else:
-                            pass
-                        #print Q3_bresult
-                        #partB = TstripID
-
-                        if Q3_aresult == Q3_bresult:
-                            CableTemplate = 'FO_FFTT' + str(sumQ2)+'.dwg'
-                        else:
-                            CableTemplate = 'FO_FTTF' + str(sumQ2)+'.dwg'
-                        #print CableTemplate
-
-                    Q_UpdateCableTemplate = "Update Cable SET Cable.CableTemplate = " +"'" + str(CableTemplate) +"'"+" from Cable WHERE CableID = '" + str(C_CableID) + "'"
-                    print Q_UpdateCableTemplate
-                    cursor.execute(Q_UpdateCableTemplate)
-                    cnxn.commit()
-
-                else:
-                    pass
-        '''
 
     def AllocateDwgNrs(self):
         cursor = cnxn.cursor()
@@ -2253,7 +2142,7 @@ class Ui_Form(QtGui.QWidget):
     # Program seq starts here:
     ConnectODBC()
     CursorX()
-
+    '''
 
 class SplicePanel():
     pass
@@ -2269,4 +2158,4 @@ class FibreCable():
 
 if __name__ == '__main__':
     checkinifile()
-    QButton()
+    #QButton()
