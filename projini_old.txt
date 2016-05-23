@@ -1,7 +1,7 @@
 /home/majoje/PycharmProjects/PyFibre
-1463905885.15
+1463906835.32
 majoje
-8832
+9575
 1
 ['0,1360,768']
 
@@ -10,9 +10,9 @@ C:\DevCode\PyCharm\PyFibre\PyFibre
 
 Previously:
 /home/majoje/PycharmProjects/PyFibre
-1463905856.45
+1463905885.15
 majoje
-8798
+8832
 1
 ['0,1360,768']
 

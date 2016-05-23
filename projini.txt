@@ -1,18 +1,18 @@
 /home/majoje/PycharmProjects/PyFibre
-1463906835.32
+1463986184.62
 majoje
-9575
+10484
 1
-['0,1360,768']
+['0,1920,1080']
 
 Previously:
 C:\DevCode\PyCharm\PyFibre\PyFibre
 
 Previously:
 /home/majoje/PycharmProjects/PyFibre
-1463905885.15
+1463906835.32
 majoje
-8832
+9575
 1
 ['0,1360,768']
 
